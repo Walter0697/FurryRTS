@@ -1,0 +1,15 @@
+TODO first:
+- set up parent classes, then set up prefab for bunny
+- collision detection for bunny and terrain
+- set a building 
+- building constantly generating bunny
+
+Project prototype
+
+- 3d rendering based on isometric view. Shaders
+- Terrain and Units
+- Collision detection between objects, between objects and terrain
+- few instances of each type of units already created
+- interaction (user click < border around the units when clicked? google it up/ just use an arrow to point at that / or just use shaders to do that stuff)
+- Camera movemnt (camera tracking / mouse moving camera (for me i will take reference as Lol))
+- enemy ai, just fucking walk
