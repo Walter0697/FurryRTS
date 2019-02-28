@@ -11,5 +11,9 @@ Project prototype
 - Collision detection between objects, between objects and terrain
 - few instances of each type of units already created
 - interaction (user click < border around the units when clicked? google it up/ just use an arrow to point at that / or just use shaders to do that stuff)
-- Camera movemnt (camera tracking / mouse moving camera (for me i will take reference as Lol))
+- Camera movemnt (tracking position)
 - enemy ai, just fucking walk
+
+DONE:
+- set up parent classes
+- camera movement
