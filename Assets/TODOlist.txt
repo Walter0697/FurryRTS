@@ -3,6 +3,11 @@ TODO first:
 - collision detection for bunny and terrain
 - set a building 
 - building constantly generating bunny
+- use mouse click to generate building
+- have units to craft things
+- set up units in each corner
+- camera movement using keypad
+- allow you to select units
 
 Project prototype
 
