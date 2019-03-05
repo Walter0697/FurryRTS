@@ -1,22 +1,25 @@
 TODO first:
-- set up parent classes, then set up prefab for bunny
-- collision detection for bunny and terrain
-- set a building 
-- building constantly generating bunny
+- set up parent classes, then set up prefab for bunny  //done?
+- collision detection for bunny and terrain  //done?
+- set a building 							//done?
+- building constantly generating bunny		//done?
 - use mouse click to generate building
 - have units to craft things
 - set up units in each corner
 - camera movement using keypad
 - allow you to select units
 
+//https://docs.unity3d.com/Manual/nav-MoveToClickPoint.html
+//https://forum.unity.com/threads/solved-gameobject-picking-highlighting-and-outlining.40407/
+
 Project prototype
 
-- 3d rendering based on isometric view. Shaders
-- Terrain and Units
-- Collision detection between objects, between objects and terrain
+- 3d rendering based on isometric view. Shaders  //done?
+- Terrain and Units//done?
+- Collision detection between objects, between objects and terrain//done?
 - few instances of each type of units already created
 - interaction (user click < border around the units when clicked? google it up/ just use an arrow to point at that / or just use shaders to do that stuff)
-- Camera movemnt (tracking position)
+- Camera movemnt (tracking position)//done?
 - enemy ai, just fucking walk
 
 DONE:
