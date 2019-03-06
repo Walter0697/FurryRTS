@@ -3,11 +3,11 @@ TODO first:
 - collision detection for bunny and terrain  //done?
 - set a building 							//done?
 - building constantly generating bunny		//done?
-- use mouse click to generate building
-- have units to craft things
+- use mouse click to generate building		//THIS ONE, HAVEN'T DONE
+- have units to craft things				//done?
 - set up units in each corner
 - camera movement using keypad
-- allow you to select units
+- allow you to select units					//YES BUT NOT MULTIPLES
 
 //https://docs.unity3d.com/Manual/nav-MoveToClickPoint.html
 //https://forum.unity.com/threads/solved-gameobject-picking-highlighting-and-outlining.40407/
@@ -21,7 +21,3 @@ Project prototype
 - interaction (user click < border around the units when clicked? google it up/ just use an arrow to point at that / or just use shaders to do that stuff)
 - Camera movemnt (tracking position)//done?
 - enemy ai, just fucking walk
-
-DONE:
-- set up parent classes
-- camera movement

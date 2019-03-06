@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Immobile : OnBoardObject {
 
+    public string building_type;
+
 	// Use this for initialization
 	void Start () {
 		

@@ -28,8 +28,15 @@ public class TeamStatus : MonoBehaviour
             if (storage[i].resource_name == res.resource_name)
             {
                 storage[i].num += res.num;
+                Destroy(res.gameObject);
                 break;
             }
         }
+    }
+
+    //set it to searching the closest one later
+    public Immobile closestStorage(Vector3 unit)
+    {
+        return building[0];
     }
 }

@@ -21,7 +21,6 @@ public class Generatable : Immobile
         if (cooldown >= spawnTime)
         {
             cooldown -= spawnTime;
-            Debug.Log("spawn!");
             Mobile mob = Instantiate(generateUnit) as Mobile;
             mob.transform.position = transform.position;
         }

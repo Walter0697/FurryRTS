@@ -17,7 +17,7 @@ public class Mobile : OnBoardObject {
     public Vector3 movement;
 
     //inventory || status
-    public Resources carrying;
+    public Resources carrying = null;
 
 	// Use this for initialization
 	void Start () {

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  building_type: spawn
   generateUnit: {fileID: 580745531, guid: 4aeb70924994ba34b9f8a4b9e9a6cc6b, type: 3}
   spawnTime: 5
 --- !u!1001 &2883250454866128372

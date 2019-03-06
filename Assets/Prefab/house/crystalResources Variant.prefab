@@ -26,7 +26,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  generate: {fileID: 0}
+  building_type: craft
+  generate: {fileID: 6091407371154624462, guid: 028c7118eb7726d429b87417b280073c,
+    type: 3}
   amount: 1
 --- !u!1001 &1066404254359155464
 PrefabInstance:
@@ -37,7 +39,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012006197310, guid: 465c505844950da499dcf096a6da4409, type: 3}
       propertyPath: m_Name
-      value: crystalResources
+      value: crystalResources Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4000011695518034, guid: 465c505844950da499dcf096a6da4409, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45,7 +47,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011695518034, guid: 465c505844950da499dcf096a6da4409, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7231336
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 4000011695518034, guid: 465c505844950da499dcf096a6da4409, type: 3}
       propertyPath: m_LocalPosition.z

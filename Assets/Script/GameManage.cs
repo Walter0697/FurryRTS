@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManage : MonoBehaviour
 {
+    public Craftable[] craftables;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,11 @@ public class GameManage : MonoBehaviour
     void Update()
     {
         
+    }
+
+    //should replace by mouse click instead of this
+    public Craftable GetCraftable()
+    {
+        return craftables[0];
     }
 }

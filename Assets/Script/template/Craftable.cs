@@ -21,6 +21,8 @@ public class Craftable : Immobile
 
     public Resources getResources()
     {
-        return generate;
+        Resources res = Instantiate(generate) as Resources;
+        res.num = amount;
+        return res;
     }
 }

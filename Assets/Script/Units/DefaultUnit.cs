@@ -27,10 +27,27 @@ public class DefaultUnit : Mobile
     {
         if (action == "running")
         {
+            //should follow the target instead of running meaninglessly
             movement = new Vector3(0, 0, speed);
             rb.position += movement * Time.deltaTime;
-            checkAnimate();
         }
+        else if (action == "crafting")
+        {
+            if (carrying == null)
+            {
+                Vector3 targetLoc = new Vector3(target.transform.position.x, 0, target.transform.position.z);
+                Vector3 diff = targetLoc - transform.position;
+                movement = diff.normalized * speed;
+                rb.position += movement * Time.deltaTime;
+            }
+            else
+            {
+                Vector3 diff = target_pos - transform.position;
+                movement = diff.normalized * speed;
+                rb.position += movement * Time.deltaTime;
+            }
+        }
+        checkAnimate();
     }
 
     private void checkAnimate()
@@ -49,9 +66,26 @@ public class DefaultUnit : Mobile
 
     void OnMouseUp()
     {
-        if (team == "rabbit")  //change it later according to the game manage
+        if (team == "rabbit" || team == "tiger")  //change it later according to the game manage
         {
-            selected = true;
+            select();
+        }
+    }
+
+    public void select()
+    {
+        //selected = true;
+        action = "crafting";
+        target = GameObject.FindGameObjectWithTag("GameManage").GetComponent<GameManage>().GetCraftable();
+        TeamStatus[] status = GameObject.FindGameObjectWithTag("GameManage").GetComponents<TeamStatus>();
+        if (status[0].team_name == team)
+        {
+            target_pos = status[0].closestStorage(transform.position).transform.position;
+            target_pos = new Vector3(target_pos.x, 0, target_pos.z);
+        }
+        else
+        {
+            //target_pos = status[1].closestStorage(transform.position).transform.position;
         }
     }
     //BY CLICKING THE UNIT, MEANING SELECT
@@ -60,4 +94,24 @@ public class DefaultUnit : Mobile
     //WELL WELL WELL, GAME MANAGE SHOULD HAVE BOTH TEAM STATUS
     //GAME MANAGE SHOULD HAVE REFERENCE FOR WHERE IS THE BUILDING AND FUNCTION TO FIND THE CLOSEST BUILDING
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (action == "crafting")
+        {
+            Craftable craft = collision.gameObject.GetComponent<Craftable>();
+            if (craft && craft == target)
+            {
+                carrying = craft.getResources();
+            }
+            else if (!craft && carrying != null)
+            {
+                Storagable storage = collision.gameObject.GetComponent<Storagable>();
+                if (storage && storage.team == team)
+                {
+                    storage.addResource(carrying);
+                    carrying = null;
+                }
+            }
+        }
+    }
 }
