@@ -33,47 +33,69 @@ public class DefaultUnit : Mobile
         movement = new Vector3(0, 0, 0);
         if (Input.GetMouseButtonDown(1))
         {
+            this.target = null;
             if (this.selected)
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 1000))
                 {
+                    
                     target_pos = hit.point;
                     action = "running";
+                    OnBoardObject o = hit.transform.gameObject.GetComponent<OnBoardObject>();
+                    if (o) {
+                        this.target = o;
+                        Craftable c = o as Craftable;
+                        if (c)
+                        {
+                            action = "crafting";
+                            TeamStatus[] status = GameObject.FindGameObjectWithTag("GameManage").GetComponents<TeamStatus>();
+                            target_pos = status[0].closestStorage(transform.position).transform.position;
+                            target_pos = new Vector3(target_pos.x, 0, target_pos.z);
+                        }
+                    }
                 }
             }
             
+        }
+        if (action == "attack" && target != null)
+        {
+            target_pos = target.transform.position;
         }
         if (action == "running")
         {
             //should follow the target instead of running meaninglessly
             Vector3 movementDir = this.target_pos - rb.position;
+            movementDir.y = 0;
             movementDir.Normalize();
             movement = movementDir * speed;
             rb.transform.LookAt(new Vector3(this.target_pos.x, rb.position.y, this.target_pos.x));
             rb.position += movement * Time.deltaTime;
+
             if (Vector3.Distance(rb.position, this.target_pos) <= closeEnoughDist)
             {
                 action = "idle";
             }
         }
-        /*else if (action == "crafting")
+        else if (action == "crafting")
         {
             if (carrying == null)
             {
-                Vector3 targetLoc = new Vector3(target.transform.position.x, 0, target.transform.position.z);
-                Vector3 diff = targetLoc - transform.position;
+                //Vector3 targetLoc = new Vector3(target.transform.position.x, 0, target.transform.position.z);
+                Vector3 diff = target.transform.position - transform.position;
+                diff.y = 0;
                 movement = diff.normalized * speed;
                 rb.position += movement * Time.deltaTime;
             }
             else
             {
                 Vector3 diff = target_pos - transform.position;
+                diff.y = 0;
                 movement = diff.normalized * speed;
                 rb.position += movement * Time.deltaTime;
             }
-        }*/
+        }
         checkAnimate();
     }
 

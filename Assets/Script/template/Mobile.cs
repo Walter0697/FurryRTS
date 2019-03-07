@@ -10,7 +10,7 @@ public class Mobile : OnBoardObject {
     public bool selected;
 
     //movement related
-    public Immobile target;
+    public OnBoardObject target;
     public Vector3 target_pos;
 
     public float speed = 1;

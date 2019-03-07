@@ -70,8 +70,8 @@ public class CameraControl : MonoBehaviour {
             }
         }
         moveDir.Normalize();
-
-        transform.position = new Vector3(transform.position.x + speed * Time.deltaTime * moveDir.x, transform.position.y - scroll * scrollSpeed, transform.position.z + speed * Time.deltaTime * moveDir.y);
+        GetComponent<Camera>().orthographicSize -= scroll * scrollSpeed;
+        transform.position = new Vector3(transform.position.x + speed * Time.deltaTime * moveDir.x, transform.position.y, transform.position.z + speed * Time.deltaTime * moveDir.y);
     }
 
     private void checkBoundary()
