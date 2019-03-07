@@ -6,9 +6,13 @@ public class DefaultUnit : Mobile
 {
     private Rigidbody rb;
     private Animator anim;
+    public float closeEnoughDist = 0.5f;
 
     public string team;
-
+    private void OnDrawGizmosSelected()
+    {
+        
+    }
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,19 +23,42 @@ public class DefaultUnit : Mobile
     void Start()
     {
         rb.freezeRotation = true;
-        action = "running";
+        action = "idle";
+        selected = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        movement = new Vector3(0, 0, 0);
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (this.selected)
+            {
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit, 1000))
+                {
+                    target_pos = hit.point;
+                    action = "running";
+                }
+            }
+            
+        }
         if (action == "running")
         {
             //should follow the target instead of running meaninglessly
-            movement = new Vector3(0, 0, speed);
+            Vector3 movementDir = this.target_pos - rb.position;
+            movementDir.Normalize();
+            movement = movementDir * speed;
+            rb.transform.LookAt(new Vector3(this.target_pos.x, rb.position.y, this.target_pos.x));
             rb.position += movement * Time.deltaTime;
+            if (Vector3.Distance(rb.position, this.target_pos) <= closeEnoughDist)
+            {
+                action = "idle";
+            }
         }
-        else if (action == "crafting")
+        /*else if (action == "crafting")
         {
             if (carrying == null)
             {
@@ -46,7 +73,7 @@ public class DefaultUnit : Mobile
                 movement = diff.normalized * speed;
                 rb.position += movement * Time.deltaTime;
             }
-        }
+        }*/
         checkAnimate();
     }
 
@@ -70,18 +97,26 @@ public class DefaultUnit : Mobile
         {
             select();
         }
+
+    }
+
+    private void OnMouseDrag()
+    {
+        // Implement a way to draw a box around multiple units and select them all
     }
 
     public void select()
     {
-        //selected = true;
-        action = "crafting";
+        
+        //action = "crafting";
         target = GameObject.FindGameObjectWithTag("GameManage").GetComponent<GameManage>().GetCraftable();
         TeamStatus[] status = GameObject.FindGameObjectWithTag("GameManage").GetComponents<TeamStatus>();
         if (status[0].team_name == team)
         {
-            target_pos = status[0].closestStorage(transform.position).transform.position;
-            target_pos = new Vector3(target_pos.x, 0, target_pos.z);
+            selected = true;
+            //target_pos = status[0].closestStorage(transform.position).transform.position;
+            //target_pos = new Vector3(target_pos.x, 0, target_pos.z);
+            //target_pos = new Vector3(300, 0, 200);
         }
         else
         {
