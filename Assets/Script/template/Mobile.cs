@@ -20,14 +20,25 @@ public class Mobile : OnBoardObject {
 
     //inventory || status
     public Resources carrying = null;
+    public bool dead;
 
-	// Use this for initialization
-	void Start () {
+    protected SkinnedMeshRenderer mesh;
+
+    // Use this for initialization
+    void Start () {
         selected = false;
+        dead = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    protected void changeSelected(bool option)
+    {
+        selected = option;
+        MaterialManager mm = GameObject.FindGameObjectWithTag("MaterialManage").GetComponent<MaterialManager>();
+        mesh.material = mm.getMaterial(team, selected);
+    }
 }

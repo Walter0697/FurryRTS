@@ -7,7 +7,7 @@ public class TeamStatus : MonoBehaviour
     public string team_name;
     public Immobile[] building;
     public Resources[] storage;
-    public Mobile[] armies;
+    public List<Mobile> armies;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,11 @@ public class TeamStatus : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void addUnits(Mobile mob)
+    {
+        armies.Add(mob);
     }
 
     //set it to searching the closest one later

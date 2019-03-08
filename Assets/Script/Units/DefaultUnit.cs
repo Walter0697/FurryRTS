@@ -9,11 +9,6 @@ public class DefaultUnit : Mobile
     public float closeEnoughDist = 1.0f;
     public float movementCloseEnough = 0.5f;
 
-
-    private void OnDrawGizmosSelected()
-    {
-        
-    }
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -23,6 +18,7 @@ public class DefaultUnit : Mobile
     // Start is called before the first frame update
     void Start()
     {
+        mesh = GetComponentInChildren<SkinnedMeshRenderer>();
         rb.freezeRotation = true;
         action = "idle";
         selected = false;
@@ -35,7 +31,7 @@ public class DefaultUnit : Mobile
 
         if (Input.GetMouseButtonDown(0) && !Input.GetKey(KeyCode.LeftShift))//Left mouse btn
         {
-            this.selected = false;
+            changeSelected(false);
         }
             
         if (Input.GetMouseButtonDown(1))//Right mouse btn
@@ -171,7 +167,7 @@ public class DefaultUnit : Mobile
         TeamStatus[] status = GameObject.FindGameObjectWithTag("GameManage").GetComponents<TeamStatus>();
         if (status[0].team_name == team)
         {
-            selected = true;
+            changeSelected(true);
             //target_pos = status[0].closestStorage(transform.position).transform.position;
             //target_pos = new Vector3(target_pos.x, 0, target_pos.z);
             //target_pos = new Vector3(300, 0, 200);

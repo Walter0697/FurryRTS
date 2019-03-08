@@ -53,6 +53,7 @@ MonoBehaviour:
   team: tiger
   carrying: {fileID: 0}
   closeEnoughDist: 1
+  movementCloseEnough: 0.5
 --- !u!1001 &462117048103024305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -303,7 +304,11 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: 0faaca137bc5a794098e6b71f8bb22f6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8707b94bf52a16748aab56ffdb4ce96f, type: 2}
+      objectReference: {fileID: 2100000, guid: f0e6c1cbfc100b44c9434d4749da91fa, type: 2}
+    - target: {fileID: 13700000, guid: 0faaca137bc5a794098e6b71f8bb22f6, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0e6c1cbfc100b44c9434d4749da91fa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0faaca137bc5a794098e6b71f8bb22f6, type: 3}
 --- !u!4 &462117048102890127 stripped
