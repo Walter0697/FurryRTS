@@ -7,8 +7,8 @@ public class CameraControl : MonoBehaviour {
     public int boundary = 50;
     public int speed = 20;
     public float scrollSpeed = 0.2f;
-    public int lowerScrollThres = 15;
-    public int greaterScrollThres = 30;
+    public int lowerScrollThres = 5;
+    public int greaterScrollThres = 20;
 
     public bool smooth = true;
     public Vector2 moveDir;
@@ -36,15 +36,15 @@ public class CameraControl : MonoBehaviour {
             scroll -= 1;
         }
 
-        if(transform.position.y - scroll * scrollSpeed > greaterScrollThres)
+        if(GetComponent<Camera>().orthographicSize - scroll * scrollSpeed > greaterScrollThres)
         {
             scroll = 0;
-            transform.position = new Vector3(transform.position.x, greaterScrollThres, transform.position.z);
+            GetComponent<Camera>().orthographicSize = greaterScrollThres;
         }
-        else if (transform.position.y - scroll * scrollSpeed < lowerScrollThres)
+        else if (GetComponent<Camera>().orthographicSize - scroll * scrollSpeed < lowerScrollThres)
         {
             scroll = 0;
-            transform.position = new Vector3(transform.position.x, lowerScrollThres, transform.position.z);
+            GetComponent<Camera>().orthographicSize = lowerScrollThres;
         }
 
 
@@ -69,14 +69,13 @@ public class CameraControl : MonoBehaviour {
                 moveDir.y -= 1;
             }
         }
-        moveDir.Normalize();
         GetComponent<Camera>().orthographicSize -= scroll * scrollSpeed;
+        moveDir.Normalize();
         transform.position = new Vector3(transform.position.x + speed * Time.deltaTime * moveDir.x, transform.position.y, transform.position.z + speed * Time.deltaTime * moveDir.y);
     }
 
     private void checkBoundary()
     {
-        float ratio;
         if (Input.mousePosition.x > screenWidth - boundary)
         {
             moveDir.x += 1;

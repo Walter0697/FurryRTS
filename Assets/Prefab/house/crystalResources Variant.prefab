@@ -29,6 +29,7 @@ MonoBehaviour:
   building_type: craft
   generate: {fileID: 6091407371154624462, guid: 028c7118eb7726d429b87417b280073c,
     type: 3}
+  remainingResouces: 100
   amount: 1
 --- !u!1001 &1066404254359155464
 PrefabInstance:

@@ -47,10 +47,12 @@ MonoBehaviour:
   selected: 0
   target: {fileID: 0}
   target_pos: {x: 0, y: 0, z: 0}
-  speed: 2
+  speed: 5
   movement: {x: 0, y: 0, z: 0}
-  carrying: {fileID: 0}
+  attackPower: 1
   team: rabbit
+  carrying: {fileID: 0}
+  closeEnoughDist: 1
 --- !u!1001 &3097908856260517444
 PrefabInstance:
   m_ObjectHideFlags: 0

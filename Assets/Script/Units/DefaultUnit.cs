@@ -6,9 +6,10 @@ public class DefaultUnit : Mobile
 {
     private Rigidbody rb;
     private Animator anim;
-    public float closeEnoughDist = 0.5f;
+    public float closeEnoughDist = 1.0f;
+    public float movementCloseEnough = 0.5f;
 
-    public string team;
+
     private void OnDrawGizmosSelected()
     {
         
@@ -31,11 +32,17 @@ public class DefaultUnit : Mobile
     void Update()
     {
         movement = new Vector3(0, 0, 0);
-        if (Input.GetMouseButtonDown(1))
+
+        if (Input.GetMouseButtonDown(0) && !Input.GetKey(KeyCode.LeftShift))//Left mouse btn
         {
-            this.target = null;
+            this.selected = false;
+        }
+            
+        if (Input.GetMouseButtonDown(1))//Right mouse btn
+        {
             if (this.selected)
             {
+                this.target = null;
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 1000))
@@ -54,14 +61,39 @@ public class DefaultUnit : Mobile
                             target_pos = status[0].closestStorage(transform.position).transform.position;
                             target_pos = new Vector3(target_pos.x, 0, target_pos.z);
                         }
+                        Mobile m = o as Mobile;
+                        if (m && m.team != team)
+                        {
+                            action = "attacking";
+                            target_pos = new Vector3(target_pos.x, 0, target_pos.z);
+                        }
                     }
                 }
             }
             
         }
-        if (action == "attack" && target != null)
+        if (action == "attacking" && target != null)
         {
-            target_pos = target.transform.position;
+            if (Vector3.Distance(rb.position, this.target_pos) <= closeEnoughDist)
+            {
+                target.health -= this.attackPower;
+                if (target.health <= 0)
+                {
+                    Destroy(target.gameObject);
+                    target = null;
+                    action = "idle";
+                }
+            }
+            else
+            {
+                target_pos = target.transform.position;
+                Vector3 movementDir = this.target_pos - rb.position;
+                movementDir.y = 0;
+                movementDir.Normalize();
+                movement = movementDir * speed;
+                rb.transform.LookAt(new Vector3(this.target_pos.x, rb.position.y, this.target_pos.x));
+                rb.position += movement * Time.deltaTime;
+            }
         }
         if (action == "running")
         {
@@ -73,13 +105,17 @@ public class DefaultUnit : Mobile
             rb.transform.LookAt(new Vector3(this.target_pos.x, rb.position.y, this.target_pos.x));
             rb.position += movement * Time.deltaTime;
 
-            if (Vector3.Distance(rb.position, this.target_pos) <= closeEnoughDist)
+            if (Vector3.Distance(rb.position, this.target_pos) <= movementCloseEnough)
             {
                 action = "idle";
             }
         }
         else if (action == "crafting")
         {
+            if (!target)
+            {
+                action = "idle";
+            }
             if (carrying == null)
             {
                 //Vector3 targetLoc = new Vector3(target.transform.position.x, 0, target.transform.position.z);

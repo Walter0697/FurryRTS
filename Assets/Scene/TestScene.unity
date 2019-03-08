@@ -244,7 +244,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.708257
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -301,8 +301,8 @@ MonoBehaviour:
   boundary: 50
   speed: 20
   scrollSpeed: 1
-  lowerScrollThres: 15
-  greaterScrollThres: 35
+  lowerScrollThres: 5
+  greaterScrollThres: 20
   smooth: 1
   moveDir: {x: 0, y: 0}
 --- !u!1 &197545161
@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1105750487, guid: ab4939364fd7e134e8e4fa1fdc4b3818, type: 3}
+      propertyPath: closeEnoughDist
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab4939364fd7e134e8e4fa1fdc4b3818, type: 3}
 --- !u!1001 &1258344984
@@ -529,11 +533,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580745531, guid: 4aeb70924994ba34b9f8a4b9e9a6cc6b, type: 3}
       propertyPath: speed
-      value: 4.11
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 580745531, guid: 4aeb70924994ba34b9f8a4b9e9a6cc6b, type: 3}
       propertyPath: closeEnoughDist
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3093240473652080172, guid: 4aeb70924994ba34b9f8a4b9e9a6cc6b,
         type: 3}

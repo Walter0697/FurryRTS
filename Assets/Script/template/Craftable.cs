@@ -5,6 +5,7 @@ using UnityEngine;
 public class Craftable : Immobile
 {
     public Resources generate;
+    public int remainingResouces;
     public int amount;
 
     // Start is called before the first frame update
@@ -16,13 +17,17 @@ public class Craftable : Immobile
     // Update is called once per frame
     void Update()
     {
-        
+        if (remainingResouces <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public Resources getResources()
     {
         Resources res = Instantiate(generate) as Resources;
         res.num = amount;
+        remainingResouces -= amount;
         return res;
     }
 }
