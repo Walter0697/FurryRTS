@@ -15,11 +15,10 @@ public class Mobile : OnBoardObject {
 
     public float speed = 1;
     public Vector3 movement;
-    public int attackPower = 1;
     public string team;
 
-    //inventory || status
-    public Resources carrying = null;
+    //status
+    
     public bool dead;
 
     protected SkinnedMeshRenderer mesh;

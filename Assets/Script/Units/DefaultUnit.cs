@@ -9,6 +9,15 @@ public class DefaultUnit : Mobile
     public float closeEnoughDist = 1.0f;
     public float movementCloseEnough = 0.5f;
 
+    public int attackPower = 1;
+    public float craftTime = 2f;
+
+    public Resources carrying = null;
+    public int maxWeight = 10;
+    private bool arrived;
+
+    private float countDown;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,6 +31,8 @@ public class DefaultUnit : Mobile
         rb.freezeRotation = true;
         action = "idle";
         selected = false;
+        arrived = false;
+        countDown = 0;
     }
 
     // Update is called once per frame
@@ -38,6 +49,7 @@ public class DefaultUnit : Mobile
         {
             if (this.selected)
             {
+                arrived = false;
                 this.target = null;
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -52,6 +64,7 @@ public class DefaultUnit : Mobile
                         Craftable c = o as Craftable;
                         if (c)
                         {
+                            countDown = 0;
                             action = "crafting";
                             TeamStatus[] status = GameObject.FindGameObjectWithTag("GameManage").GetComponents<TeamStatus>();
                             target_pos = status[0].closestStorage(transform.position).transform.position;
@@ -108,17 +121,45 @@ public class DefaultUnit : Mobile
         }
         else if (action == "crafting")
         {
+            
             if (!target)
             {
                 action = "idle";
             }
-            if (carrying == null)
+            else if (carrying == null || carrying.num < maxWeight)
             {
-                //Vector3 targetLoc = new Vector3(target.transform.position.x, 0, target.transform.position.z);
-                Vector3 diff = target.transform.position - transform.position;
-                diff.y = 0;
-                movement = diff.normalized * speed;
-                rb.position += movement * Time.deltaTime;
+                if (!arrived)
+                {
+                    //Vector3 targetLoc = new Vector3(target.transform.position.x, 0, target.transform.position.z);
+                    Vector3 diff = target.transform.position - transform.position;
+                    diff.y = 0;
+                    movement = diff.normalized * speed;
+                    rb.position += movement * Time.deltaTime;
+                }
+                else
+                {
+                    countDown += Time.deltaTime;
+                    if (countDown >= craftTime)
+                    {
+                        Craftable craft = target as Craftable;
+                        countDown -= craftTime;
+                        if (carrying == null)
+                            carrying = craft.getResources();
+                        else
+                        {
+                            Resources crafted = craft.getResources();
+                            //may change it later for different resources
+                            carrying.num += crafted.num;
+                            Debug.Log(carrying.num);
+                            Destroy(crafted.gameObject);
+                        }
+
+                        if (carrying.num >= maxWeight)
+                        {
+                            arrived = false;
+                        }
+                    }
+                }
             }
             else
             {
@@ -190,7 +231,7 @@ public class DefaultUnit : Mobile
             Craftable craft = collision.gameObject.GetComponent<Craftable>();
             if (craft && craft == target)
             {
-                carrying = craft.getResources();
+                arrived = true;
             }
             else if (!craft && carrying != null)
             {

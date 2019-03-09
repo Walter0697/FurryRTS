@@ -6,8 +6,9 @@ TODO first:
 - use mouse click to generate building		//THIS ONE, HAVEN'T DONE
 - have units to craft things				//done?
 - set up units in each corner
-- camera movement using keypad
 - allow you to select units					//YES BUT NOT MULTIPLES
+- create the README file for TA
+- camrea tracking?
 
 //https://docs.unity3d.com/Manual/nav-MoveToClickPoint.html
 //https://forum.unity.com/threads/solved-gameobject-picking-highlighting-and-outlining.40407/
@@ -17,7 +18,7 @@ Project prototype
 - 3d rendering based on isometric view. Shaders  //done?
 - Terrain and Units//done?
 - Collision detection between objects, between objects and terrain//done?
-- few instances of each type of units already created
+- few instances of each type of units already created	//hmmmmm done?
 - interaction (user click < border around the units when clicked? google it up/ just use an arrow to point at that / or just use shaders to do that stuff)
 - Camera movemnt (tracking position)//done?
 - enemy ai, just fucking walk
