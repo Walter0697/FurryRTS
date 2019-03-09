@@ -1,0 +1,25 @@
+
+Game: Furry Wars
+
+By: Jeremy Melone and Walter Cheng
+
+Objective:
+Destroy all the enemy soldiers and buildings, by building up an army, 
+collecting resources, and fighting to the end!
+(You are playing as the rabbits and fighting the tigers, for this demo version).
+
+Controls:
+LMouseBtn: Select one of your units. It will become highlighted in red.
+LShift + LMouseBtn: Select additional units after already having some selected, so that
+you can command many units at once.
+
+RMouseBtn: Click with units selected to send them to move to a location on the map.
+Click on a gem on the map and they will begin automatically collecting the resources 
+from it. Click on an enemy unit and it will attack the unit.
+
+Move your mouse to the edges of the screen, or use the arrow keys to move the screen.
+Scroll the scroll wheel to zoom in and out.
+
+
+
+Have fun!!!
