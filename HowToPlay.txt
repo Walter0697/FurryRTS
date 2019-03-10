@@ -20,6 +20,7 @@ from it. Click on an enemy unit and it will attack the unit.
 Move your mouse to the edges of the screen, or use the arrow keys to move the screen.
 Scroll the scroll wheel to zoom in and out.
 
-
+All assets from the assets store are saved inside the resources folder
+Others are created from scratch with Blender
 
 Have fun!!!
