@@ -1,24 +1,27 @@
 TODO first:
-- set up parent classes, then set up prefab for bunny  //done?
-- collision detection for bunny and terrain  //done?
-- set a building 							//done?
-- building constantly generating bunny		//done?
-- use mouse click to generate building		//THIS ONE, HAVEN'T DONE
-- have units to craft things				//done?
-- set up units in each corner
-- allow you to select units					//YES BUT NOT MULTIPLES
-- create the README file for TA
 - camrea tracking?
+- setup more buildings
+- animation
+- character animation
+- physics and steering behaviors
 
 //https://docs.unity3d.com/Manual/nav-MoveToClickPoint.html
 //https://forum.unity.com/threads/solved-gameobject-picking-highlighting-and-outlining.40407/
 
 Project prototype
 
-- 3d rendering based on isometric view. Shaders  //done?
-- Terrain and Units//done?
-- Collision detection between objects, between objects and terrain//done?
-- few instances of each type of units already created	//hmmmmm done?
-- interaction (user click < border around the units when clicked? google it up/ just use an arrow to point at that / or just use shaders to do that stuff)
-- Camera movemnt (tracking position)//done?
-- enemy ai, just fucking walk
+- Animation: Move the units in the game from one location to another with a Hermite spline combined with ease-in and ease-out. When asking a unit to move to a specific location, instead of rotating and then moving the unit, a Hermite spline allows to start the motion without requiring an initial rotation. Set up the Hermite spline on the 2D surface of the world's map. Make sure to also update the orientation of the unit while moving the unit along the spline, so that it always faces the forward direction. Use an ease function to ease-in and ease-out the motion. Note: you may choose a different unit movement mechanic for your final game, however, for this assignment, you should explore the use of a spline.
+
+- Character animation: Animate the humanoid unit in your game with human motion such as walking and running, and apply it in the relevant context of actions. Include at least three different types of motion, in addition to an idle state. You can use any freely available data for this part, such as a rigged character and animation clips provided by Mixamo or the Unity tutorials. Make sure to cite the source of these resources. Then, program your own state machine to activate the animation in a meaningful manner. Combine the character animation with the motion animation from the previous item.
+
+- Physics and steering behaviors: Take one of the unit types in your game, replicate it at least 10 times, and program a flocking behavior for the units. Implement the flocking with separation, cohesion, and alignment forces. Apply the forces through Unity's physics engine and let Unity keep track of the objects' positions and velocities. Complement the flocking behavior with seek and wander behaviors for the leader of the flock. Note: again, you may choose not to include the flocking behavior in your final game, but you should explore its potential in this assignment.
+
+
+
+- Bonus (+10%): include one of the following items:
+
+- Character animation: Program an instance of inverse kinematics for the human character. For example, a minimal example would involve the character grabbing and holding an object in its hands. The grabbing can be instantaneous, but we should be able to see the character holding the object while in a proper pose. 
+
+- Steering behaviors: Add an obstacle avoidance behavior to the members of the flock. Add a sufficient number of obstacles to your game scene to show that the behavior works satisfactorily.
+
+For your submission, include the source code (scenes, scripts, etc.) for your game and a readme.txt detailing how each technical requirement is activated in the game. 
