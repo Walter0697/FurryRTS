@@ -47,7 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   building_type: spawn
-  generateUnit: {fileID: 580745531, guid: 4aeb70924994ba34b9f8a4b9e9a6cc6b, type: 3}
+  generateUnit: {fileID: 7763495345342421155, guid: 4aeb70924994ba34b9f8a4b9e9a6cc6b,
+    type: 3}
   spawnTime: 5
   spawnPosition: {fileID: 1061009670227133374}
 --- !u!1 &1061009669151280805

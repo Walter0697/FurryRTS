@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 5920259758113796455}
   - component: {fileID: 4333983942637463204}
   m_Layer: 0
-  m_Name: TigerHouse Variant
+  m_Name: TigerHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   building_type: spawn
-  generateUnit: {fileID: 1105750487, guid: ab4939364fd7e134e8e4fa1fdc4b3818, type: 3}
+  generateUnit: {fileID: 6823750733429771422, guid: ab4939364fd7e134e8e4fa1fdc4b3818,
+    type: 3}
   spawnTime: 5
   spawnPosition: {fileID: 156919013094817129}
 --- !u!1 &6012904193327835230

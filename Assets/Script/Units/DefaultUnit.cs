@@ -13,6 +13,7 @@ public class DefaultUnit : Mobile
     public float craftTime = 2f;
 
     public Resources carrying = null;
+    public Transform carryingPosition;
     public int maxWeight = 10;
     private bool arrived;
 
@@ -144,7 +145,11 @@ public class DefaultUnit : Mobile
                         Craftable craft = target as Craftable;
                         countDown -= craftTime;
                         if (carrying == null)
+                        {
                             carrying = craft.getResources();
+                            carrying.transform.position = carryingPosition.transform.position;
+                            carrying.transform.parent = transform;
+                        }
                         else
                         {
                             Resources crafted = craft.getResources();
@@ -218,11 +223,6 @@ public class DefaultUnit : Mobile
             //target_pos = status[1].closestStorage(transform.position).transform.position;
         }
     }
-    //BY CLICKING THE UNIT, MEANING SELECT
-    //BUT FOR TESTING, MAKE THEM SWITCH TO CRAFTING
-    //SET UP THE RESOURCES HOUSE, SO THAT AFTER CRAFTING, IT WILL GO TO THE BANK
-    //WELL WELL WELL, GAME MANAGE SHOULD HAVE BOTH TEAM STATUS
-    //GAME MANAGE SHOULD HAVE REFERENCE FOR WHERE IS THE BUILDING AND FUNCTION TO FIND THE CLOSEST BUILDING
 
     private void OnCollisionEnter(Collision collision)
     {
