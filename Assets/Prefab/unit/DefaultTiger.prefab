@@ -8539,7 +8539,9 @@ GameObject:
   - component: {fileID: 6823750733429771491}
   - component: {fileID: 6823750733429771420}
   - component: {fileID: 6823750733429771421}
+  - component: {fileID: 4646841902876665683}
   - component: {fileID: 6823750733429771422}
+  - component: {fileID: 7499898876462168910}
   m_Layer: 0
   m_Name: DefaultTiger
   m_TagString: Untagged
@@ -8574,7 +8576,7 @@ Animator:
   m_GameObject: {fileID: 6823750733429771423}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0faaca137bc5a794098e6b71f8bb22f6, type: 3}
-  m_Controller: {fileID: 9100000, guid: 67fdf13761bfc234a8602d6bc1348f5f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6f0cb202357269040a61d6317f596bb2, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -8612,6 +8614,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3625183, y: 0.78113174, z: 1}
   m_Center: {x: -0.0034637451, y: 0.37641525, z: 0}
+--- !u!114 &4646841902876665683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823750733429771423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1014845096a381043818a1d079ab9533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0, z: 0}
+  dead: 0
 --- !u!114 &6823750733429771422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8625,15 +8641,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  unit: {fileID: 0}
   unit_type: unit
   action: 
   selected: 0
   target: {fileID: 0}
   target_pos: {x: 0, y: 0, z: 0}
   speed: 3
-  movement: {x: 0, y: 0, z: 0}
   team: tiger
-  dead: 0
   closeEnoughDist: 1
   movementCloseEnough: 0.5
   attackPower: 1
@@ -8641,6 +8656,18 @@ MonoBehaviour:
   carrying: {fileID: 0}
   carryingPosition: {fileID: 7470291959905413017}
   maxWeight: 10
+--- !u!114 &7499898876462168910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823750733429771423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc718090812fb274e9f8fdc8fd3b3a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6823750733436645591
 GameObject:
   m_ObjectHideFlags: 0

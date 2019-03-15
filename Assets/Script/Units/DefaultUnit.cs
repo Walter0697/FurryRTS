@@ -5,7 +5,6 @@ using UnityEngine;
 public class DefaultUnit : Mobile
 {
     private Rigidbody rb;
-    private Animator anim;
     public float closeEnoughDist = 1.0f;
     public float movementCloseEnough = 0.5f;
 
@@ -22,7 +21,7 @@ public class DefaultUnit : Mobile
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        unit = GetComponent<Unit>();
     }
 
     // Start is called before the first frame update
@@ -34,13 +33,14 @@ public class DefaultUnit : Mobile
         selected = false;
         arrived = false;
         countDown = 0;
+
+        unit.movement = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement = new Vector3(0, 0, 0);
-
+        unit.movement *= 0;
         if (Input.GetMouseButtonDown(0) && !Input.GetKey(KeyCode.LeftShift))//Left mouse btn
         {
             changeSelected(false);
@@ -100,9 +100,9 @@ public class DefaultUnit : Mobile
                 Vector3 movementDir = this.target_pos - rb.position;
                 movementDir.y = 0;
                 movementDir.Normalize();
-                movement = movementDir * speed;
+                unit.movement = movementDir * speed;
                 rb.transform.LookAt(new Vector3(this.target_pos.x, rb.position.y, this.target_pos.x));
-                rb.position += movement * Time.deltaTime;
+                rb.position += unit.movement * Time.deltaTime;
             }
         }
         if (action == "running")
@@ -111,9 +111,9 @@ public class DefaultUnit : Mobile
             Vector3 movementDir = this.target_pos - rb.position;
             movementDir.y = 0;
             movementDir.Normalize();
-            movement = movementDir * speed;
+            unit.movement = movementDir * speed;
             rb.transform.LookAt(new Vector3(this.target_pos.x, rb.position.y, this.target_pos.x));
-            rb.position += movement * Time.deltaTime;
+            rb.position += unit.movement * Time.deltaTime;
 
             if (Vector3.Distance(rb.position, this.target_pos) <= movementCloseEnough)
             {
@@ -134,8 +134,8 @@ public class DefaultUnit : Mobile
                     //Vector3 targetLoc = new Vector3(target.transform.position.x, 0, target.transform.position.z);
                     Vector3 diff = target.transform.position - transform.position;
                     diff.y = 0;
-                    movement = diff.normalized * speed;
-                    rb.position += movement * Time.deltaTime;
+                    unit.movement = diff.normalized * speed;
+                    rb.position += unit.movement * Time.deltaTime;
                 }
                 else
                 {
@@ -170,25 +170,12 @@ public class DefaultUnit : Mobile
             {
                 Vector3 diff = target_pos - transform.position;
                 diff.y = 0;
-                movement = diff.normalized * speed;
-                rb.position += movement * Time.deltaTime;
+                unit.movement = diff.normalized * speed;
+                rb.position += unit.movement * Time.deltaTime;
             }
         }
-        checkAnimate();
-    }
-
-    private void checkAnimate()
-    {
-        if (movement.magnitude == 0)
-        {
-            if (anim.GetInteger("AnimIndex") != 0) anim.SetTrigger("Next");
-            anim.SetInteger("AnimIndex", 0);
-        }
-        else
-        {
-            if (anim.GetInteger("AnimIndex") != 1) anim.SetTrigger("Next");
-            anim.SetInteger("AnimIndex", 1);
-        }
+        if (action == "idle")
+            unit.movement *= 0;
     }
 
     void OnMouseUp()

@@ -62,11 +62,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resource\Rabbits\Demo\Scripts\AnimatorParamatersChange.cs" />
+    <Compile Include="Assets\Script\Animation\RabbitAnimate.cs" />
+    <Compile Include="Assets\Script\Animation\TigerAnimate.cs" />
     <Compile Include="Assets\Script\fancy\Rotator.cs" />
     <Compile Include="Assets\Script\manager\CameraControl.cs" />
     <Compile Include="Assets\Script\manager\GameManage.cs" />
     <Compile Include="Assets\Script\manager\MaterialManager.cs" />
     <Compile Include="Assets\Script\manager\TeamStatus.cs" />
+    <Compile Include="Assets\Script\template\AnimateControl.cs" />
     <Compile Include="Assets\Script\template\Craftable.cs" />
     <Compile Include="Assets\Script\template\Generatable.cs" />
     <Compile Include="Assets\Script\template\Immobile.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="Assets\Script\template\OnBoardObject.cs" />
     <Compile Include="Assets\Script\template\Resources.cs" />
     <Compile Include="Assets\Script\template\Storagable.cs" />
+    <Compile Include="Assets\Script\template\Unit.cs" />
     <Compile Include="Assets\Script\Units\DefaultUnit.cs" />
     <None Include="Assets\TODOlist.txt" />
     <None Include="Assets\Resource\FantasyEnvironments\Environments\README.txt" />

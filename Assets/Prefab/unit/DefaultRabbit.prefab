@@ -252,7 +252,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7763495344573465931}
-  m_LocalRotation: {x: -0.50868195, y: 0.13386652, z: 0.6827875, w: 0.5070738}
+  m_LocalRotation: {x: -0.5086819, y: 0.1338665, z: 0.6827874, w: 0.50707376}
   m_LocalPosition: {x: -0.0022732944, y: -0.0019935044, z: 0.0015177919}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.9999999}
   m_Children: []
@@ -349,7 +349,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7763495345121170685}
-  m_LocalRotation: {x: -0.5100091, y: 0.6578082, z: 0.5118672, w: 0.21253516}
+  m_LocalRotation: {x: -0.51000905, y: 0.6578081, z: 0.51186717, w: 0.21253513}
   m_LocalPosition: {x: -0, y: 5.6999997e-16, z: 0}
   m_LocalScale: {x: 1.0000004, y: 1.0000001, z: 1.0000002}
   m_Children:
@@ -399,7 +399,9 @@ GameObject:
   - component: {fileID: 7763495345342421158}
   - component: {fileID: 7763495345342421157}
   - component: {fileID: 7763495345342421156}
+  - component: {fileID: 2984377174340328545}
   - component: {fileID: 7763495345342421155}
+  - component: {fileID: 4755689679484240099}
   m_Layer: 0
   m_Name: DefaultRabbit
   m_TagString: Untagged
@@ -435,7 +437,7 @@ Animator:
   m_GameObject: {fileID: 7763495345342421154}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0962bdca27eaca34aaa15f7fdf608faf, type: 3}
-  m_Controller: {fileID: 9100000, guid: 8beaedaf7a4023642b48737ef7ee04b7, type: 2}
+  m_Controller: {fileID: 9100000, guid: d74667d6f0304e34cb7a50467d9ac699, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -473,6 +475,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.45232126, y: 0.72528934, z: 0.9999999}
   m_Center: {x: 0.015431983, y: 0.365919, z: 0}
+--- !u!114 &2984377174340328545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763495345342421154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1014845096a381043818a1d079ab9533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0, z: 0}
+  dead: 0
 --- !u!114 &7763495345342421155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,9 +508,7 @@ MonoBehaviour:
   target: {fileID: 0}
   target_pos: {x: 0, y: 0, z: 0}
   speed: 5
-  movement: {x: 0, y: 0, z: 0}
   team: rabbit
-  dead: 0
   closeEnoughDist: 1
   movementCloseEnough: 0.5
   attackPower: 1
@@ -502,6 +516,18 @@ MonoBehaviour:
   carrying: {fileID: 0}
   carryingPosition: {fileID: 7763495345470158611}
   maxWeight: 10
+--- !u!114 &4755689679484240099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763495345342421154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb802e011c25554eb5367e82f2716b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7763495345454754553
 GameObject:
   m_ObjectHideFlags: 0
