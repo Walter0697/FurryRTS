@@ -11,6 +11,9 @@ public class Mobile : OnBoardObject {
     //running / crafting / building / defending (idie?)
     public bool selected;
 
+    public Vector2 acceleration = new Vector2(0, 0);
+    public Vector2 velocity = new Vector2(0, 0);
+
     //movement related
     public OnBoardObject target;
     public Vector3 target_pos;
