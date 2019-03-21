@@ -10,6 +10,7 @@ public class CameraControl : MonoBehaviour {
     public int lowerScrollThres = 5;
     public int greaterScrollThres = 20;
 
+    public bool checkWithBoundary = false;
     public bool smooth = true;
     public Vector2 moveDir;
 
@@ -49,7 +50,10 @@ public class CameraControl : MonoBehaviour {
 
 
         moveDir = new Vector2(0, 0);
-        checkBoundary();
+
+        if (checkWithBoundary)
+            checkBoundary();
+
         if (Input.anyKey)
         {
             if (Input.GetKey(KeyCode.LeftArrow))

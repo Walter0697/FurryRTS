@@ -5,8 +5,6 @@ TODO first:
 - character animation
 - physics and steering behaviors
 
-//https://docs.unity3d.com/Manual/nav-MoveToClickPoint.html
-//https://forum.unity.com/threads/solved-gameobject-picking-highlighting-and-outlining.40407/
 
 Project prototype
 
