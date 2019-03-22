@@ -193,7 +193,7 @@ public class DefaultUnit : Mobile
     void Update()
     {
         unit.movement *= 0;
-        
+        unit.craft = false;
         if (Input.GetMouseButtonDown(0))//Left mouse btn
         {
             if (!Input.GetKey(KeyCode.LeftShift))
@@ -271,6 +271,7 @@ public class DefaultUnit : Mobile
                         Craftable c = o as Craftable;
                         if (c)
                         {
+                            unit.craft = true;
                             countDown = 0;
                             action = "crafting";
                             TeamStatus[] status = GameObject.FindGameObjectWithTag("GameManage").GetComponents<TeamStatus>();

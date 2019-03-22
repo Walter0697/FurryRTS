@@ -5,7 +5,7 @@ using UnityEngine;
 public class FairyMovement : MonoBehaviour
 {
     public Keylocation[] keys;
-    public float speed = 2f;
+    public float speed = 10f;
     private float counter;
 
     // Start is called before the first frame update

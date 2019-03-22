@@ -21,6 +21,6 @@ public class GameManage : MonoBehaviour
     //should replace by mouse click instead of this
     public Craftable GetCraftable()
     {
-        return craftables[0];
+        return craftables[Random.Range(0, craftables.Length)];
     }
 }

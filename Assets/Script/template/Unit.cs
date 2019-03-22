@@ -6,6 +6,7 @@ public class Unit : MonoBehaviour
 {
     [HideInInspector] public Vector3 movement;
     [HideInInspector] public bool dead;
+    [HideInInspector] public bool craft;
 
     // Start is called before the first frame update
     void Start()

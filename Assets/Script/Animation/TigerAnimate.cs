@@ -15,6 +15,9 @@ public class TigerAnimate : AnimateControl
     {
         if (unit.dead) anim.SetBool("Dead", true);
         else
+        {
+            anim.SetBool("craft", true);
             anim.SetFloat("Speed", unit.movement.magnitude);
+        }
     }
 }
