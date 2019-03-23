@@ -9,7 +9,7 @@ collecting resources, and fighting to the end!
 (You are playing as the rabbits and fighting the tigers, for this demo version).
 
 Controls:
-LMouseBtn: Select one of your units. It will become highlighted in red.
+LMouseBtn (or click and drag): Select one of your units. It will become highlighted in red.
 LShift + LMouseBtn: Select additional units after already having some selected, so that
 you can command many units at once.
 

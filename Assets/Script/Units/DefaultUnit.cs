@@ -9,10 +9,13 @@ public class DefaultUnit : Mobile
     private Rigidbody rb;
     public float closeEnoughDist = 1.0f;
     public float movementCloseEnough = 0.5f;
+    public float attackDistance = 2.0f;
 
 
-    public int attackPower = 1;
+    public float attackPower = 1.0f;
     public float craftTime = 2f;
+
+    private Vector3 lookDir = new Vector3(1,0,0);
 
     private float maxforce = 1;
     public static Vector3 mouseDownPoint;
@@ -34,7 +37,7 @@ public class DefaultUnit : Mobile
     void Start()
     {
         mesh = GetComponentInChildren<SkinnedMeshRenderer>();
-        rb.freezeRotation = true;
+        //rb.freezeRotation = true;
         action = "idle";
         selected = false;
         arrived = false;
@@ -100,7 +103,6 @@ public class DefaultUnit : Mobile
     // For every nearby boid in the system, calculate the average velocity
     public Vector2 align(ArrayList boids)
     {
-        float neighbordist = 3;
         Vector2 sum = new Vector2(0, 0);
         int count = 0;
         foreach (Mobile other in boids)
@@ -249,7 +251,7 @@ public class DefaultUnit : Mobile
                 box.transform.localScale = scale;
             }
         }
-
+        
         if (Input.GetMouseButtonDown(1))//Right mouse btn
         {
             if (this.selected)
@@ -264,6 +266,10 @@ public class DefaultUnit : Mobile
                 {
                     
                     target_pos = hit.point;
+                    lookDir = new Vector3(target_pos.x - transform.position.x, 0, target_pos.z - transform.position.z);
+                    //rb.freezeRotation = false;
+
+                    //rb.freezeRotation = true;
                     action = "running";
                     OnBoardObject o = hit.transform.gameObject.GetComponent<OnBoardObject>();
                     if (o) {
@@ -296,7 +302,7 @@ public class DefaultUnit : Mobile
         }
         if (action == "attacking" && target != null)
         {
-            if (Vector3.Distance(rb.position, this.target_pos) <= closeEnoughDist)
+            if (Vector3.Distance(rb.position, this.target_pos) <= attackDistance)
             {
                 target.health -= this.attackPower;
                 if (target.health <= 0)
@@ -315,6 +321,8 @@ public class DefaultUnit : Mobile
                 unit.movement = movementDir * speed;
                 rb.transform.LookAt(new Vector3(this.target_pos.x, rb.position.y, this.target_pos.x));
                 rb.position += unit.movement * Time.deltaTime;
+
+                
             }
         }
         else if (action == "running")
@@ -326,6 +334,7 @@ public class DefaultUnit : Mobile
             unit.movement = movementDir * speed;
             rb.transform.LookAt(new Vector3(this.target_pos.x, rb.position.y, this.target_pos.x));
             rb.position += unit.movement * Time.deltaTime;
+
 
             if (Vector3.Distance(rb.position, this.target_pos) <= movementCloseEnough)
             {
@@ -437,6 +446,8 @@ public class DefaultUnit : Mobile
             temp.y = 10;
             transform.position = temp;
         }*/
+        Quaternion q = Quaternion.LookRotation(lookDir, new Vector3(0, 1, 0));
+        transform.rotation = q;
     }
 
     void OnMouseUp()

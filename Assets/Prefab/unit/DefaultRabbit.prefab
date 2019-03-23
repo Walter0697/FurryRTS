@@ -460,7 +460,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &7763495345342421156
 BoxCollider:
@@ -489,6 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {x: 0, y: 0, z: 0}
   dead: 0
+  craft: 0
 --- !u!114 &7763495345342421155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,6 +515,7 @@ MonoBehaviour:
   team: rabbit
   closeEnoughDist: 1
   movementCloseEnough: 0.5
+  attackDistance: 2
   attackPower: 1
   craftTime: 2
   carrying: {fileID: 0}
