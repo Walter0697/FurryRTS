@@ -19,8 +19,15 @@ public class GameManage : MonoBehaviour
     }
 
     //should replace by mouse click instead of this
-    public Craftable GetCraftable()
+	public Craftable GetCraftable(int index = -1)
     {
-        return craftables[Random.Range(0, craftables.Length)];
+		if (index == -1)
+        	return craftables[Random.Range(0, craftables.Length)];
+		return craftables[index];
     }
+
+	public int GetNumOfCraftable()
+	{
+		return craftables.Length;
+	}
 }

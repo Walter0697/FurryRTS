@@ -1,0 +1,18 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\TigerAI.cs">
+    <Files>
+      <File FileName="Assets\Script\TigerAI.cs" Line="26" Column="4" />
+      <File FileName="Assets\Script\manager\TeamStatus.cs" Line="46" Column="6" />
+      <File FileName="Assets\Script\manager\GameManage.cs" Line="26" Column="20" />
+      <File FileName="Assets\Script\Units\DefaultUnit.cs" Line="268" Column="44" />
+      <File FileName="Assets\Script\template\Mobile.cs" Line="39" Column="113" />
+      <File FileName="Assets\Script\template\Generatable.cs" Line="18" Column="9" />
+      <File FileName="Assets\Script\template\Craftable.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
