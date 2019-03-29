@@ -319,7 +319,7 @@ public class DefaultUnit : Mobile
                 movementDir.y = 0;
                 movementDir.Normalize();
                 unit.movement = movementDir * speed;
-                rb.transform.LookAt(new Vector3(this.target_pos.x, rb.position.y, this.target_pos.x));
+                lookDir = new Vector3(target.transform.position.x - transform.position.x, 0, target.transform.position.z - transform.position.z);
                 rb.position += unit.movement * Time.deltaTime;
 
                 
@@ -354,6 +354,8 @@ public class DefaultUnit : Mobile
                 {
                     //Vector3 targetLoc = new Vector3(target.transform.position.x, 0, target.transform.position.z);
                     Vector3 diff = target.transform.position - transform.position;
+                    target_pos = target.transform.position;
+                    lookDir = new Vector3(target.transform.position.x - transform.position.x, 0, target.transform.position.z - transform.position.z);
                     diff.y = 0;
                     unit.movement = diff.normalized * speed;
                     rb.position += unit.movement * Time.deltaTime;
@@ -393,6 +395,7 @@ public class DefaultUnit : Mobile
                 diff.y = 0;
                 unit.movement = diff.normalized * speed;
                 rb.position += unit.movement * Time.deltaTime;
+                lookDir = new Vector3(target.transform.position.x - transform.position.x, 0, target.transform.position.z - transform.position.z);
             }
         }
         else if (action == "flocking")
