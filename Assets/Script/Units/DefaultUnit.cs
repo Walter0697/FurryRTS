@@ -7,7 +7,7 @@ using UnityEngine;
 public class DefaultUnit : Mobile
 {
     private Rigidbody rb;
-    public float closeEnoughDist = 1.0f;
+    //public float closeEnoughDist = 1.0f;
     public float movementCloseEnough = 0.5f;
     public float attackDistance = 2.0f;
 
@@ -19,6 +19,7 @@ public class DefaultUnit : Mobile
 
     private float maxforce = 1;
     public static Vector3 mouseDownPoint;
+    public float autoAttackDist = 10.0f;
 
     public Resources carrying = null;
     public Transform carryingPosition;
@@ -295,11 +296,31 @@ public class DefaultUnit : Mobile
                             action = "flocking";
                             target_pos = new Vector3(this.target.transform.position.x, 0, this.target.transform.position.z);
                         }
+                        Immobile i = o as Immobile;
+                        if (i && i.team != team)
+                        {
+                            action = "attacking";
+                            target_pos = new Vector3(this.target.transform.position.x, 0, this.target.transform.position.z);
+                        }
                     }
                 }
             }
             
         }
+        //Auto-attacking
+
+        Mobile[] mobile = FindObjectsOfType<Mobile>();
+        foreach (Mobile m in mobile)
+        {
+            if ((action == "idle" || action == "flocking" || action == "crafting") && m.team != team && Vector3.Distance(transform.position, m.transform.position) <= autoAttackDist)
+            {
+                action = "attacking";
+                target = m;
+                target_pos = new Vector3(this.target.transform.position.x, 0, this.target.transform.position.z);
+            }
+        }
+
+
         if (action == "attacking" && target != null)
         {
             if (Vector3.Distance(rb.position, this.target_pos) <= attackDistance)
@@ -354,7 +375,7 @@ public class DefaultUnit : Mobile
                 {
                     //Vector3 targetLoc = new Vector3(target.transform.position.x, 0, target.transform.position.z);
                     Vector3 diff = target.transform.position - transform.position;
-                    target_pos = target.transform.position;
+                    //target_pos = target.transform.position;
                     lookDir = new Vector3(target.transform.position.x - transform.position.x, 0, target.transform.position.z - transform.position.z);
                     diff.y = 0;
                     unit.movement = diff.normalized * speed;
@@ -378,7 +399,7 @@ public class DefaultUnit : Mobile
                             Resources crafted = craft.getResources();
                             //may change it later for different resources
                             carrying.num += crafted.num;
-                            Debug.Log(carrying.num);
+                            //Debug.Log(carrying.num);
                             Destroy(crafted.gameObject);
                         }
 
@@ -411,9 +432,9 @@ public class DefaultUnit : Mobile
             //}
             
 
-            Mobile[] mobile = FindObjectsOfType<Mobile>();
+            Mobile[] mobs = FindObjectsOfType<Mobile>();
             ArrayList flocking = new ArrayList();
-            foreach(Mobile m in mobile)
+            foreach(Mobile m in mobs)
             {
                 if((m.action == "flocking" && m.team == team && m.target == target) || m == target)
                 {

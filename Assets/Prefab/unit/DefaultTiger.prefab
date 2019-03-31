@@ -8628,6 +8628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {x: 0, y: 0, z: 0}
   dead: 0
+  craft: 0
 --- !u!114 &6823750733429771422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8653,7 +8654,8 @@ MonoBehaviour:
   team: tiger
   closeEnoughDist: 1
   movementCloseEnough: 0.5
-  attackPower: 1
+  attackDistance: 2
+  attackPower: 2.5
   craftTime: 2
   carrying: {fileID: 0}
   carryingPosition: {fileID: 7470291959905413017}

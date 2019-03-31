@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Storagable : Immobile
 {
-    public string team;
+    //public string team;
     // Start is called before the first frame update
     void Start()
     {

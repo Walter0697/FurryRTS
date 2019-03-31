@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1061009668560082786}
   - component: {fileID: 1061009668560082789}
+  - component: {fileID: 1198414883048506087}
+  - component: {fileID: 7010088791549322566}
   m_Layer: 0
   m_Name: RabbitHouse
   m_TagString: Untagged
@@ -47,10 +49,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   building_type: spawn
+  team: 
   generateUnit: {fileID: 7763495345342421155, guid: 4aeb70924994ba34b9f8a4b9e9a6cc6b,
     type: 3}
   spawnTime: 5
   spawnPosition: {fileID: 1061009670227133374}
+--- !u!65 &1198414883048506087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061009668560082788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.993576, y: 3.228678, z: 2.475525}
+  m_Center: {x: 0.13793182, y: 0.59833777, z: 0.22833252}
+--- !u!114 &7010088791549322566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061009668560082788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa89df78d0e9aee4b80173a94baaa9d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5000
+  building_type: 
+  team: rabbit
 --- !u!1 &1061009669151280805
 GameObject:
   m_ObjectHideFlags: 0
