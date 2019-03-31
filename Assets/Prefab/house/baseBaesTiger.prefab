@@ -39,7 +39,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5498657, y: 5.4747906, z: 2.8046951}
   m_Center: {x: -0.46221924, y: 1.0051231, z: 0.2362175}
---- !u!114 &6334622901339938120
+--- !u!114 &4067835759062352001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,12 +48,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5821133625620025084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa89df78d0e9aee4b80173a94baaa9d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6089d25feec6cf44ea16b36a1a1df34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25000
-  building_type: 
+  building_type: base
   team: tiger
+  max_health: 25000
 --- !u!1001 &170979308826104838
 PrefabInstance:
   m_ObjectHideFlags: 0

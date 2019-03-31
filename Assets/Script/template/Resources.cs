@@ -9,7 +9,7 @@ public class Resources : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        num = 0;
 	}
 	
 	// Update is called once per frame
