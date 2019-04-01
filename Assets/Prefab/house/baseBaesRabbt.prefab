@@ -13,6 +13,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 90, z: 0}
+--- !u!1 &4419224155780929879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5291269784167702801}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5291269784167702801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4419224155780929879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.45, y: 0, z: 2.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5821133625620320988}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1391587850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +85,9 @@ MonoBehaviour:
   building_type: base
   team: rabbit
   max_health: 25000
+  giantUnit: {fileID: 8380597632186149995, guid: d8a5d87509320fb48ace7fd84511893e,
+    type: 3}
+  spawnPosition: {fileID: 5291269784167702801}
 --- !u!1001 &3758226585966189461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -374,18 +407,6 @@ PrefabInstance:
       objectReference: {fileID: 3762723492113763917}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f9dcd6bf73fe2f40806fb0074f456c4, type: 3}
---- !u!4 &3762670351922428201 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4599896632681148, guid: 3f9dcd6bf73fe2f40806fb0074f456c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 3758226585966189461}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3762448980775350013 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4785361986565480, guid: 3f9dcd6bf73fe2f40806fb0074f456c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 3758226585966189461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3757147014723513529 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1115346038830892, guid: 3f9dcd6bf73fe2f40806fb0074f456c4,
@@ -521,6 +542,18 @@ Transform:
 --- !u!4 &3762465203560357427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4803766570845606, guid: 3f9dcd6bf73fe2f40806fb0074f456c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3758226585966189461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3762670351922428201 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4599896632681148, guid: 3f9dcd6bf73fe2f40806fb0074f456c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3758226585966189461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3762448980775350013 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4785361986565480, guid: 3f9dcd6bf73fe2f40806fb0074f456c4,
     type: 3}
   m_PrefabInstance: {fileID: 3758226585966189461}
   m_PrefabAsset: {fileID: 0}

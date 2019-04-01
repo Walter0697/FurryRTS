@@ -273,9 +273,13 @@ public class DefaultUnit : Mobile
                     //rb.freezeRotation = true;
                     action = "running";
                     OnBoardObject o = hit.transform.gameObject.GetComponent<OnBoardObject>();
+                    
+                    
                     if (o) {
                         this.target = o;
                         Craftable c = o as Craftable;
+                        Mobile m = o as Mobile;
+                        Immobile i = o as Immobile;
                         if (c)
                         {
                             unit.craft = true;
@@ -285,8 +289,7 @@ public class DefaultUnit : Mobile
                             target_pos = status[0].closestStorage(transform.position).transform.position;
                             target_pos = new Vector3(target_pos.x, 0, target_pos.z);
                         }
-                        Mobile m = o as Mobile;
-                        if (m && m.team != team)
+                        else if (m && m.team != team)
                         {
                             action = "attacking";
                             target_pos = new Vector3(this.target.transform.position.x, 0, this.target.transform.position.z);
@@ -296,10 +299,9 @@ public class DefaultUnit : Mobile
                             action = "flocking";
                             target_pos = new Vector3(this.target.transform.position.x, 0, this.target.transform.position.z);
                         }
-                        Immobile i = o as Immobile;
-                        if (i && i.team != team)
+                        else if (i && i.team != team)
                         {
-                            action = "attacking";
+                            action = "crafting";
                             target_pos = new Vector3(this.target.transform.position.x, 0, this.target.transform.position.z);
                         }
                     }

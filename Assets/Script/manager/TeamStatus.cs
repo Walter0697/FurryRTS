@@ -61,4 +61,39 @@ public class TeamStatus : MonoBehaviour
     {
         return building[0];
     }
+
+    public void healBase(int index)
+    {
+        if (index == 0 && team_name == "tiger") return;
+        if (index == 1 && team_name == "rabbit") return;
+        for (int i = 0; i < storage.Length; i++)
+        {
+            if (storage[i].resource_name == "fish")
+            {
+                if (storage[i].num >= 10)
+                {
+                    storage[i].num -= 10;
+                    main_build.health = (main_build.health + 500 > main_build.max_health) ? main_build.max_health : main_build.health + 500;
+                }
+            }
+        }
+    }
+
+    public void generateGiant(int index)
+    {
+        if (index == 0 && team_name == "tiger") return;
+        if (index == 1 && team_name == "rabbit") return;
+        for (int i = 0; i < storage.Length; i++)
+        {
+            if (storage[i].resource_name == "fish")
+            {
+                if (storage[i].num >= 50)
+                {
+                    storage[i].num -= 50;
+                    Mobile giant = main_build.generateGiantUnit();
+                    armies.Add(giant);
+                }
+            }
+        }
+    }
 }
