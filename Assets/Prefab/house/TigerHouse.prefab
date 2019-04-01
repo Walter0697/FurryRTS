@@ -140,6 +140,7 @@ Transform:
   - {fileID: 2904666103103321029}
   - {fileID: 9134150361210125743}
   - {fileID: 156919013094817129}
+  - {fileID: 5713421360391823836}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -158,6 +159,7 @@ MonoBehaviour:
   health: 100
   building_type: spawn
   team: 
+  groundPosition: {fileID: 0}
   generateUnit: {fileID: 6823750733429771422, guid: ab4939364fd7e134e8e4fa1fdc4b3818,
     type: 3}
   spawnTime: 5
@@ -190,6 +192,7 @@ MonoBehaviour:
   health: 5000
   building_type: 
   team: tiger
+  groundPosition: {fileID: 5713421360391823836}
 --- !u!1 &6012904193327835230
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +224,36 @@ Transform:
   m_Father: {fileID: 5920259758113796455}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -32.033, y: -0.68, z: -8.626}
+--- !u!1 &6137223514769483467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5713421360391823836}
+  m_Layer: 0
+  m_Name: groundPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5713421360391823836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6137223514769483467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.62, y: -1.25, z: 0.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5920259758113796455}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7385089536604667119
 GameObject:
   m_ObjectHideFlags: 0

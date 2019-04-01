@@ -17,6 +17,9 @@ public class TeamStatus : MonoBehaviour
     public Text woodNum;
     public Text fishNum;
 
+    public Immobile defaultHouse;
+    public Immobile longrangeHouse;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,65 @@ public class TeamStatus : MonoBehaviour
             else if (storage[i].resource_name == "fish")
                 fishNum.text = storage[i].num.ToString();
         }
+
+        if (Input.GetKeyDown("1"))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                Vector3 mouseDownPoint = hit.point;
+                buildBuilding(0, 0, new Vector3(mouseDownPoint.x, 0, mouseDownPoint.z));
+            }
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                Vector3 mouseDownPoint = hit.point;
+                buildBuilding(0, 1, new Vector3(mouseDownPoint.x, 0, mouseDownPoint.z));
+            }
+        }
+    }
+
+    public void buildBuilding(int index, int build, Vector3 pos)
+    {
+        if (index == 0 && team_name == "tiger") return;
+        if (index == 1 && team_name == "rabbit") return;
+        if (build == 0) //defaultunit
+        {
+            if (canBuild(50, pos))
+            {
+                Immobile b = Instantiate(defaultHouse) as Immobile;
+                b.transform.position = new Vector3(pos.x, (pos - b.groundPosition.position).y, pos.z);
+            }
+        }
+        else if (build == 1)
+        {
+            if (canBuild(80, pos))
+            {
+                Immobile b = Instantiate(longrangeHouse) as Immobile;
+                b.transform.position = new Vector3(pos.x, (pos - b.groundPosition.position).y, pos.z);
+            }
+        }
+    }
+
+    public bool canBuild(int cost, Vector3 position)
+    {
+        for (int i = 0; i < storage.Length; i++)
+        {
+            if (storage[i].resource_name == "wood")
+            {
+                if (storage[i].num >= cost)
+                {
+                    storage[i].num -= cost;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public void addResources(Resources res)

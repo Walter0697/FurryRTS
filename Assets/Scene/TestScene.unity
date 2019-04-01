@@ -784,6 +784,10 @@ MonoBehaviour:
   hpText: {fileID: 285047214}
   woodNum: {fileID: 2002623276}
   fishNum: {fileID: 2095103716}
+  defaultHouse: {fileID: 1061009668560082789, guid: 7f7d2624aa9d989469297d633bab2659,
+    type: 3}
+  longrangeHouse: {fileID: 160652398208230110, guid: d0ca6c74eac4c8249b1794bc265dff43,
+    type: 3}
 --- !u!114 &197545165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,6 +812,10 @@ MonoBehaviour:
   hpText: {fileID: 2039785230}
   woodNum: {fileID: 1638959591}
   fishNum: {fileID: 1551232549}
+  defaultHouse: {fileID: 4333983942637463204, guid: 9291c0d6d6440f3478922f7b16f1ebbb,
+    type: 3}
+  longrangeHouse: {fileID: 1223953949410934217, guid: 3bb3f2f06ac1151438f233d511e79035,
+    type: 3}
 --- !u!114 &197545166
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 1061009670436632711}
   - {fileID: 1061009670227133374}
+  - {fileID: 1227755194679272438}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -50,6 +51,7 @@ MonoBehaviour:
   health: 100
   building_type: spawn
   team: 
+  groundPosition: {fileID: 0}
   generateUnit: {fileID: 7763495345342421155, guid: 4aeb70924994ba34b9f8a4b9e9a6cc6b,
     type: 3}
   spawnTime: 5
@@ -82,6 +84,7 @@ MonoBehaviour:
   health: 5000
   building_type: 
   team: rabbit
+  groundPosition: {fileID: 1227755194679272438}
 --- !u!1 &1061009669151280805
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,3 +301,33 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &2277488608491559531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1227755194679272438}
+  m_Layer: 0
+  m_Name: groundPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1227755194679272438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2277488608491559531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4, y: -1.37, z: 0.26}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1061009668560082786}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
