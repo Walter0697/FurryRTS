@@ -26,6 +26,9 @@ public class DefaultUnit : Mobile
     public int maxWeight = 10;
     private bool arrived;
 
+    private int pathfindingTime = 0;
+    private float pathfindingDetectionDist = 5.0f;
+
     private float countDown;
 
     void Awake()
@@ -350,8 +353,23 @@ public class DefaultUnit : Mobile
         }
         else if (action == "running")
         {
-            //should follow the target instead of running meaninglessly
             Vector3 movementDir = this.target_pos - rb.position;
+
+            RaycastHit hit;
+            //Debug.DrawRay(transform.position + new Vector3(0,1,0), transform.forward * pathfindingDetectionDist, Color.white, 100.0f, false);
+            if (Physics.Raycast(transform.position + new Vector3(0,1,0), transform.forward, out hit, pathfindingDetectionDist)){
+                Immobile i = hit.transform.gameObject.GetComponent<Immobile>();
+                Mobile m = hit.transform.gameObject.GetComponent<Mobile>();
+
+                if (i || m)
+                {
+                    Vector3 c = (this.target_pos - rb.position);
+                    Vector3 t = Vector3.Cross(new Vector3(c.x,0,c.z), new Vector3(0, 1, 0));
+                    //t.Normalize();
+                    movementDir = t;
+                }
+            }
+            //should follow the target instead of running meaninglessly
             movementDir.y = 0;
             movementDir.Normalize();
             unit.movement = movementDir * speed;

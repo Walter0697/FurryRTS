@@ -2297,6 +2297,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1061009668560082788, guid: 7f7d2624aa9d989469297d633bab2659,
+        type: 3}
+      propertyPath: m_Name
+      value: RabbitHouse
+      objectReference: {fileID: 0}
     - target: {fileID: 1061009668560082786, guid: 7f7d2624aa9d989469297d633bab2659,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2351,11 +2356,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1061009668560082788, guid: 7f7d2624aa9d989469297d633bab2659,
-        type: 3}
-      propertyPath: m_Name
-      value: RabbitHouse
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f7d2624aa9d989469297d633bab2659, type: 3}
@@ -4992,16 +4992,16 @@ RectTransform:
   m_GameObject: {fileID: 1629748217}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.12, y: 0.31668, z: 1.12}
+  m_LocalScale: {x: 1.12, y: 0.25, z: 1.12}
   m_Children:
   - {fileID: 1922072651}
   m_Father: {fileID: 1711295524}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -212.5}
-  m_SizeDelta: {x: 0, y: -75}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -222.64998}
+  m_SizeDelta: {x: 948, y: -11.4999695}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1629748219
 MonoBehaviour:
