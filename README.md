@@ -1,15 +1,9 @@
 # FURRY RTS
 
-- Hermite spline is being implemented as a hinting fairy, to guide player where to go
-- script is inside "/Script/fancy/FairyMovement.cs"
+- Most of the technical requirements were described in previous README.md
 
-- Both rabbits and Tiger have animations
-- Rabbits have idle, moving, and dead animations
-- Tigers have idle, moving, dead, and crafting(which is running but nothing else match this for our assets) animations
-- All animation related scripts are inside "/Script/Animation"
-
-- Physics and steering behaviors are being used by Rabbit units
-
-- Flocking behavior implemented with separation, cohesion, and alignment forces. (with a unit selected, right click on another friendly unit to have them flock around that unit) Implemented in DefaultUnit.cs
-- Seek and wander steering behaviors implemented for the leader of the flock.
-- Unity's physics engine is used to apply forces to the objects and keep track of their positions and velocities.
+- Pathfinding: A slight pathfinding was being implemented
+- Semi-automatic actions: After crafting the unit will go back to the storage, units will attack enemies when nearby.
+- Enemy AI: enemy will randomly find resources to craft, and select buildings to build. If they have enough resources, they will start attacking the opponent team.
+- Full game mechanics: End game text will be shown when one building health becomes zero
+- Feedback to the player: GUI was implemented to show the main building health and the resources a team owns

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class DefaultUnit : Mobile
 {
     private Rigidbody rb;
@@ -289,7 +287,7 @@ public class DefaultUnit : Mobile
                             countDown = 0;
                             action = "crafting";
                             TeamStatus[] status = GameObject.FindGameObjectWithTag("GameManage").GetComponents<TeamStatus>();
-                            target_pos = status[0].closestStorage(transform.position).transform.position;
+                            target_pos = status[0].storage_loc.transform.position;
                             target_pos = new Vector3(target_pos.x, 0, target_pos.z);
                         }
                         else if (m && m.team != team)

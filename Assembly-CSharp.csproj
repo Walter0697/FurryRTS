@@ -76,7 +76,6 @@
      <Compile Include="Assets\Script\TigerAI.cs" />
      <Compile Include="Assets\Script\Units\Base.cs" />
      <Compile Include="Assets\Script\Units\DefaultUnit.cs" />
-     <None Include="Assets\TODOlist.txt" />
      <None Include="Assets\Shader\waterSurfaceShader.shader" />
      <None Include="Assets\Resource\FantasyEnvironments\Environments\README.txt" />
      <None Include="Assets\Shader\OutlineShader.shader" />

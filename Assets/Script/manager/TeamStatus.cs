@@ -7,9 +7,10 @@ public class TeamStatus : MonoBehaviour
 {
     public string team_name;
     public Base main_build;
-    public Immobile[] building;
+    public List<Immobile> building;
     public Resources[] storage;
     public List<Mobile> armies;
+    public Immobile storage_loc;
 
     //UI related
     public Image hpShow;
@@ -47,7 +48,7 @@ public class TeamStatus : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 1000))
             {
                 Vector3 mouseDownPoint = hit.point;
-                buildBuilding(0, 0, new Vector3(mouseDownPoint.x, 0, mouseDownPoint.z));
+                buildBuilding(0, 0, mouseDownPoint);
             }
         }
         else if (Input.GetKeyDown("2"))
@@ -57,7 +58,7 @@ public class TeamStatus : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 1000))
             {
                 Vector3 mouseDownPoint = hit.point;
-                buildBuilding(0, 1, new Vector3(mouseDownPoint.x, 0, mouseDownPoint.z));
+                buildBuilding(0, 1, mouseDownPoint);
             }
         }
     }
@@ -71,7 +72,8 @@ public class TeamStatus : MonoBehaviour
             if (canBuild(50, pos))
             {
                 Immobile b = Instantiate(defaultHouse) as Immobile;
-                b.transform.position = new Vector3(pos.x, (pos - b.groundPosition.position).y, pos.z);
+                b.transform.position = new Vector3(pos.x, pos.y + 2, pos.z);
+                building.Add(b);
             }
         }
         else if (build == 1)
@@ -79,7 +81,8 @@ public class TeamStatus : MonoBehaviour
             if (canBuild(80, pos))
             {
                 Immobile b = Instantiate(longrangeHouse) as Immobile;
-                b.transform.position = new Vector3(pos.x, (pos - b.groundPosition.position).y, pos.z);
+                b.transform.position = new Vector3(pos.x, pos.y + 2, pos.z);
+                building.Add(b);
             }
         }
     }
@@ -111,6 +114,26 @@ public class TeamStatus : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public int getWood()
+    {
+        for (int i = 0; i < storage.Length; i++)
+        {
+            if (storage[i].resource_name == "wood")
+                return storage[i].num;
+        }
+        return 0;
+    }
+
+    public int getFish()
+    {
+        for (int i = 0; i < storage.Length; i++)
+        {
+            if (storage[i].resource_name == "fish")
+                return storage[i].num;
+        }
+        return 0;
     }
 
     public void addUnits(Mobile mob)
