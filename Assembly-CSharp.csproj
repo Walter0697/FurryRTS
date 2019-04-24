@@ -64,6 +64,8 @@
      <Compile Include="Assets\Script\manager\GameManage.cs" />
      <Compile Include="Assets\Script\manager\MaterialManager.cs" />
      <Compile Include="Assets\Script\manager\TeamStatus.cs" />
+     <Compile Include="Assets\Script\MorteTreeSearch.cs" />
+     <Compile Include="Assets\Script\Node.cs" />
      <Compile Include="Assets\Script\template\AnimateControl.cs" />
      <Compile Include="Assets\Script\template\Craftable.cs" />
      <Compile Include="Assets\Script\template\Generatable.cs" />

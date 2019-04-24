@@ -9,8 +9,6 @@ public class DefaultUnit : Mobile
     public float movementCloseEnough = 0.5f;
     public float attackDistance = 2.0f;
 
-
-    public float attackPower = 1.0f;
     public float craftTime = 2f;
 
     private Vector3 lookDir = new Vector3(1,0,0);

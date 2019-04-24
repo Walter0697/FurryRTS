@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class TigerAI : MonoBehaviour
 {
-	private TeamStatus status;
-	private TeamStatus others;
-	private GameManage manager;
+	[HideInInspector] public TeamStatus status;
+    [HideInInspector] public TeamStatus others;
+    [HideInInspector] public GameManage manager;
 
     public Transform[] housePos;
-    private bool[] spawnedPos;
+    [HideInInspector] public bool[] spawnedPos;
 
 	public float updateTime = 1f;
-	private float countdown;
+	public float countdown;
     public float checkBuildTime = 3f;
-    private float countdown2;
+    public float countdown2;
     public float checkFoodTime = 3f;
-    private float countdown3;
+    public float countdown3;
 
     // Start is called before the first frame update
     void Start()
@@ -39,19 +39,20 @@ public class TigerAI : MonoBehaviour
             spawnedPos[i] = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void updateAI()
     {
-		countdown += Time.deltaTime;
+        countdown += Time.deltaTime;
         countdown2 += Time.deltaTime;
         countdown3 += Time.deltaTime;
 
-		if (countdown >= updateTime) {
+        if (countdown >= updateTime)
+        {
             countdown -= updateTime;
-            
-			
+
+
             //unit chose to attack
-			foreach (Mobile ele in status.armies) {
+            foreach (Mobile ele in status.armies)
+            {
                 if (enoughCost())
                 {
                     int numOfOption = others.building.Count + 1;
@@ -76,10 +77,11 @@ public class TigerAI : MonoBehaviour
                         performOption(ele, Random.Range(0, numOfOption));
                     }
                 }
-			}
-		}
+            }
+        }
 
-        if (countdown2 >= checkBuildTime) {
+        if (countdown2 >= checkBuildTime)
+        {
             countdown2 -= checkBuildTime;
             int numOfOption = getSpawnnablePosition();
 
@@ -89,7 +91,8 @@ public class TigerAI : MonoBehaviour
             }
         }
 
-        if (countdown3 >= checkFoodTime) {
+        if (countdown3 >= checkFoodTime)
+        {
             countdown3 -= checkFoodTime;
 
             if (status.getFish() > 20)
@@ -104,6 +107,12 @@ public class TigerAI : MonoBehaviour
                 }
             }
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        updateAI();
     }
 
     //if the cost is enough for computer to choose attacking

@@ -789,6 +789,7 @@ GameObject:
   - component: {fileID: 197545164}
   - component: {fileID: 197545165}
   - component: {fileID: 197545166}
+  - component: {fileID: 197545167}
   m_Layer: 0
   m_Name: GameManage
   m_TagString: GameManage
@@ -809,18 +810,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   craftables:
-  - {fileID: 1387199929}
-  - {fileID: 1940104748}
-  - {fileID: 59801855}
+  - {fileID: 1994898617}
+  - {fileID: 923256087}
+  - {fileID: 435880526}
   - {fileID: 471772684}
   - {fileID: 1268216070}
   - {fileID: 1746045796}
   - {fileID: 1340623342}
-  - {fileID: 1994898617}
+  - {fileID: 1387199929}
   - {fileID: 80705605}
   - {fileID: 1213423590}
-  - {fileID: 923256087}
-  - {fileID: 435880526}
+  - {fileID: 1940104748}
+  - {fileID: 59801855}
   winningText: {fileID: 158216345}
 --- !u!4 &197545163
 Transform:
@@ -905,11 +906,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197545161}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdbe296d09706d74bac7318703151031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: {fileID: 0}
+  others: {fileID: 0}
+  manager: {fileID: 0}
   housePos:
   - {fileID: 1737023007}
   - {fileID: 1962540532}
@@ -917,9 +921,47 @@ MonoBehaviour:
   - {fileID: 482014187}
   - {fileID: 977100477}
   - {fileID: 765638159}
+  spawnedPos: 
   updateTime: 1
+  countdown: 0
   checkBuildTime: 3
+  countdown2: 0
   checkFoodTime: 3
+  countdown3: 0
+--- !u!114 &197545167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197545161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d2ce8e08e212a4a8e6a0fd5ecb4b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status: {fileID: 0}
+  others: {fileID: 0}
+  manager: {fileID: 0}
+  housePos:
+  - {fileID: 1737023007}
+  - {fileID: 1962540532}
+  - {fileID: 440353037}
+  - {fileID: 482014187}
+  - {fileID: 977100477}
+  - {fileID: 765638159}
+  spawnedPos: 
+  updateTime: 1
+  countdown: 0
+  checkBuildTime: 3
+  countdown2: 0
+  checkFoodTime: 3
+  countdown3: 0
+  AGREESIVE_INDEX: 3
+  RESOURCE_INDEX: 3
+  DEPTH: 3
+  testButton: 97
+  C: 14214214
 --- !u!4 &225469233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1365778276926394244, guid: d3874a8dcecec9e4bab065647e8c6d04,
